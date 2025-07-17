@@ -1,0 +1,94 @@
+
+=== BENCHMARK REPORT ===
+GPU: Apple M2 Max (Apple (0x106b)) - Unknown
+                                    |                 |                      |                 |            |                           |                
+Configuration                       | Tool Calls      | Results              | Duration        | Status     | Arguments                 | Result         
+--------------------------------------------------------------------------------------------------------------------------------------------
+DMR Qwen2.5 [7.62B IQ2_XXS/Q4_K_M]  | 1 calls         | 1 results            | 7.34s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+Ollama Qwen2.5 [7b]                 | 8 calls         | 8 results            | 7.69s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+  8. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+                                    |                 |                      |                 |            |                           |                
+DMR Qwen3 [8.19B IQ2_XXS/Q4_K_M]    | 1 calls         | 1 results            | 15.11s          | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+Ollama Qwen3 [8b]                   | 8 calls         | 8 results            | 19.16s          | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+  8. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+                                    |                 |                      |                 |            |                           |                
+DMR Qwen3 [751.63M IQ2_XXS/Q4_K_M]  | 1 calls         | 1 results            | 3.15s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+Ollama Qwen3 [0.6b]                 | 8 calls         | 8 results            | 3.66s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+  8. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+                                    |                 |                      |                 |            |                           |                
+DMR Gemma3n [6.87B IQ2_XXS/Q4_K_M]  | 1 calls         | 1 results            | 4.17s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR Llama-xLAM-2 q4_k_m             | 8 calls         | 8 results            | 10.33s          | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+  8. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+                                    |                 |                      |                 |            |                           |                
+DMR Llama-xLAM-2 q2_k               | 1 calls         | 1 results            | 4.15s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR xlam-2-3b-fc-r-gguf:q4_k_m      | 8 calls         | 8 results            | 4.95s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+  8. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+                                    |                 |                      |                 |            |                           |                
+DMR xlam-2-3b-fc-r-gguf:q4_k_s      | 8 calls         | 8 results            | 4.38s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+  8. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+                                    |                 |                      |                 |            |                           |                
+DMR xlam-2-3b-fc-r-gguf:q4_0        | 1 calls         | 1 results            | 1.86s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR xlam-2-3b-fc-r-gguf:q3_k_l      | 8 calls         | 8 results            | 4.73s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+  6. multiply                       |                 |                      |                 |            | {a:5,b:6}                 | 30             
+  7. say_hello                      |                 |                      |                 |            | {name:Alice}              | Hello, Alice!  
+  8. multiply                       |                 |                      |                 |            | {a:10,b:3}                | 30             
+                                    |                 |                      |                 |            |                           |                

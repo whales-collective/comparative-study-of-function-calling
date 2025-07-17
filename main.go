@@ -19,7 +19,10 @@ func main() {
 	Add 12 and 30
 	Say Hello to Bob
 	Add 40 and 2
-	Add 5 and 37					
+	Add 5 and 37	
+	Multiply 5 and 6
+	Say Hello to Alice
+	Multiply 10 and 3				
 	`
 
 	// ai/gemma3n
@@ -70,7 +73,28 @@ func main() {
 			BaseURL: "http://localhost:12434/engines/llama.cpp/v1",
 			Model:   "hf.co/salesforce/llama-xlam-2-8b-fc-r-gguf:q2_k",
 		},
-	}
+		{
+			Info:    "DMR xlam-2-3b-fc-r-gguf:q4_k_m",
+			BaseURL: "http://localhost:12434/engines/llama.cpp/v1",
+			Model:   "hf.co/salesforce/xlam-2-3b-fc-r-gguf:q4_k_m",
+		},
+		{
+			Info:    "DMR xlam-2-3b-fc-r-gguf:q4_k_s",
+			BaseURL: "http://localhost:12434/engines/llama.cpp/v1",
+			Model:   "hf.co/salesforce/xlam-2-3b-fc-r-gguf:q4_k_s",
+		},
+		{
+			Info:    "DMR xlam-2-3b-fc-r-gguf:q4_0",
+			BaseURL: "http://localhost:12434/engines/llama.cpp/v1",
+			Model:   "hf.co/salesforce/xlam-2-3b-fc-r-gguf:q4_0",
+		},
+		{
+			Info:    "DMR xlam-2-3b-fc-r-gguf:q3_k_l",
+			BaseURL: "http://localhost:12434/engines/llama.cpp/v1",
+			Model:   "hf.co/salesforce/xlam-2-3b-fc-r-gguf:q3_k_l",
+		},
+
+	} 
 
 	gpuInfo := GetGPUInfo()
 	fmt.Println(gpuInfo)
@@ -226,6 +250,27 @@ func ToolsCatalog() []openai.ChatCompletionToolParam {
 		},
 	}
 
+	multiplicationTool := openai.ChatCompletionToolParam{
+		Function: openai.FunctionDefinitionParam{
+			Name:        "multiply",
+			Description: openai.String("multiply two numbers"),
+			Parameters: openai.FunctionParameters{
+				"type": "object",
+				"properties": map[string]interface{}{
+					"a": map[string]string{
+						"type":        "number",
+						"description": "The first number to multiply.",
+					},
+					"b": map[string]string{
+						"type":        "number",
+						"description": "The second number to multiply.",
+					},
+				},
+				"required": []string{"a", "b"},
+			},
+		},
+	}
+
 	sayHelloTool := openai.ChatCompletionToolParam{
 		Function: openai.FunctionDefinitionParam{
 			Name:        "say_hello",
@@ -242,7 +287,7 @@ func ToolsCatalog() []openai.ChatCompletionToolParam {
 		},
 	}
 
-	return []openai.ChatCompletionToolParam{addTool, sayHelloTool}
+	return []openai.ChatCompletionToolParam{addTool, sayHelloTool, multiplicationTool}
 }
 
 func ToolCallHandlers() map[string]func(any) (any, error) {
@@ -261,6 +306,14 @@ func ToolCallHandlers() map[string]func(any) (any, error) {
 			name := args.(map[string]any)["name"].(string)
 			result := fmt.Sprintf("Hello, %s!", name)
 			fmt.Println(" - say_hello tool with args:", args, "result:", result)
+			return result, nil
+		},
+
+		"multiply": func(args any) (any, error) {
+			a := args.(map[string]any)["a"].(float64)
+			b := args.(map[string]any)["b"].(float64)
+			result := a * b
+			fmt.Println(" - multiply tool with args:", args, "result:", result)
 			return result, nil
 		},
 	}
