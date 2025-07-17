@@ -1,0 +1,53 @@
+
+=== BENCHMARK REPORT ===
+GPU: Apple M2 Max (Apple (0x106b)) - Unknown
+                                    |                 |                      |                 |            |                           |                
+Configuration                       | Tool Calls      | Results              | Duration        | Status     | Arguments                 | Result         
+--------------------------------------------------------------------------------------------------------------------------------------------
+DMR Qwen2.5 [7.62B IQ2_XXS/Q4_K_M]  | 1 calls         | 1 results            | 5.67s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+Ollama Qwen2.5 [7b]                 | 5 calls         | 5 results            | 5.83s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR Qwen3 [8.19B IQ2_XXS/Q4_K_M]    | 1 calls         | 1 results            | 11.69s          | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+Ollama Qwen3 [8b]                   | 5 calls         | 5 results            | 18.28s          | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR Qwen3 [751.63M IQ2_XXS/Q4_K_M]  | 1 calls         | 1 results            | 2.50s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+Ollama Qwen3 [0.6b]                 | 5 calls         | 5 results            | 3.14s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR Gemma3n [6.87B IQ2_XXS/Q4_K_M]  | 1 calls         | 1 results            | 3.92s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR Llama-xLAM-2 q4_k_m             | 5 calls         | 5 results            | 7.21s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+                                    |                 |                      |                 |            |                           |                
+DMR Llama-xLAM-2 q2_k               | 5 calls         | 5 results            | 6.67s           | SUCCESS    |                           |                
+  1. add                            |                 |                      |                 |            | {a:10,b:32}               | 42             
+  2. add                            |                 |                      |                 |            | {a:12,b:30}               | 42             
+  3. say_hello                      |                 |                      |                 |            | {name:Bob}                | Hello, Bob!    
+  4. add                            |                 |                      |                 |            | {a:40,b:2}                | 42             
+  5. add                            |                 |                      |                 |            | {a:5,b:37}                | 42             
+                                    |                 |                      |                 |            |                           |                
